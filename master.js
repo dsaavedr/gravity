@@ -1,5 +1,7 @@
-var n = 1000,
+var n = 1500,
     c = 0,
+    minspeed = 3,
+    color = "black",
     mouse = null,
     particles = [];
 
@@ -20,7 +22,7 @@ function init() {
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     ctx.beginPath();
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'orange';
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
     ctx.closePath();
 
@@ -36,7 +38,9 @@ function init() {
     for (var i = 0; i < n; i++) {
         particles.push(new Particle(
             new Vector(random(WIDTH), random(HEIGHT)),
-            Vector.random()
+            Vector.random(),
+            color,
+            random(2, 6)
         ));
         particles[i].vel.setMag(random(3, 4));
     }
@@ -45,7 +49,10 @@ function init() {
 }
 
 function ani() {
+    ctx.save();
+    // ctx.globalAlpha = 0.2;
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
+    ctx.restore();
 
     for (var i = 0; i < n; i++) {
         var p = particles[i];
@@ -56,6 +63,9 @@ function ani() {
             p.applyForce(g);
         }
         p.update();
+        if (p.vel.mag() < minspeed) {
+            p.vel.setMag(minspeed);
+        }
         p.show();
     }
 
