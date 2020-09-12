@@ -42,7 +42,7 @@ function init() {
             color,
             random(2, 6)
         ));
-        particles[i].vel.setMag(random(3, 4));
+        particles[i].vel.setMag(random(5, 6));
     }
 
     ani();
