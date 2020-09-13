@@ -4,11 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gravity</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link rel="stylesheet" href="master.css">
 </head>
 
 <body>
     <div id="app">
+        <div class="sidebar" id="inputs">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+            <div class="form-group">
+                <label for="particles">Number of particles:</label>
+                <input type="range" class="form-control-range" id="particles" min="200" max="2000" step="1">
+            </div>
+
+            <div class="form-group">
+                <label for="gravity">Gravity strength</label>
+                <input type="range" class="form-control-range" id="gravity" min="0.025" max="1" step="0.001">
+            </div>
+
+            <div class="form-group">
+                <label for="minspeed">Minimum speed</label>
+                <input type="range" class="form-control-range" id="minspeed" min="2" max="10" step="0.5">
+            </div>
+        </div>
+
+        <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+
         <canvas id="canvas"></canvas>
     </div>
 
