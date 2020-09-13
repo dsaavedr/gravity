@@ -1,6 +1,7 @@
 var n = 2000,
     c = 0,
     minspeed = 3,
+    gravity = 0.05,
     color = "black",
     mouse = null,
     particles = [];
@@ -19,6 +20,8 @@ function init() {
 
     canvas.setAttribute('width', WIDTH);
     canvas.setAttribute('height', HEIGHT);
+
+    mouse = new Vector(random(WIDTH), random(HEIGHT));
 
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
     ctx.beginPath();
@@ -42,7 +45,7 @@ function init() {
             color,
             random(2, 6)
         ));
-        particles[i].vel.setMag(random(5, 6));
+        particles[i].vel.setMag(random(5, 10));
     }
 
     ani();
@@ -59,7 +62,7 @@ function ani() {
         p.borders();
         if (mouse) {
             var g = Vector.sub(mouse, p.pos);
-            g.setMag(0.05);
+            g.setMag(gravity);
             p.applyForce(g);
         }
         p.update();
