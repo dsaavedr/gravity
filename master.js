@@ -1,4 +1,4 @@
-var n = 1500,
+var n = 2000,
     c = 0,
     minspeed = 3,
     color = "black",
