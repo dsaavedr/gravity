@@ -150,12 +150,14 @@ function checkRadios() {
         var v = Vector.random();
         int = setInterval(function () {
             if (mouse.x > WIDTH || mouse.x < 0 || mouse.y > HEIGHT || mouse.y < 0) {
-                mouse.set(WIDTH / 2, HEIGHT / 2);
+                mouse = new Vector(WIDTH / 2, HEIGHT / 2);
             }
-            if (c % 25 == 0) {
-                v = Vector.random();
+            if (c % 30 == 0) {
+                log(v.heading());
+                v = Vector.fromAngle(v.heading() + random(-Math.PI / 4, Math.PI / 4));
             }
-            mouse.add(v.setMag(random(1, 2)));
+
+            mouse.add(v.setMag(random(0.5, 0.75)));
             c++;
         }, 10);
 
@@ -165,9 +167,6 @@ function checkRadios() {
         canvas.onmousedown = function (e) {
             mouse = new Vector(e.clientX, e.clientY);
         }
-        /* window.onmousedown = function (e) {
-            mouse = new Vector(e.clientX, e.clientY);
-        } */
 
         window.onmousemove = null;
         clearInterval(int);
