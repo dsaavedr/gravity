@@ -28,6 +28,21 @@
                 <label for="minspeed">Minimum speed</label>
                 <input type="range" class="form-control-range" id="minspeed" min="2" max="10" step="0.5">
             </div>
+
+            <form class="form-group" id="type">
+                <p>Center type</p>
+                <input type="radio" id="click" name="type" value="click">
+                <label for="click">Click</label><br>
+                <input type="radio" id="mouse" name="type" value="mouse">
+                <label for="mouse">Follow mouse</label><br>
+                <input type="radio" id="random" name="type" value="random">
+                <label for="random">Random walk</label><br>
+            </form>
+
+            <div class="form-group">
+                <input type="checkbox" id="center" name="center" value="center">
+                <label for="center">Show center</label>
+            </div>
         </div>
 
         <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
