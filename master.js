@@ -32,7 +32,7 @@ function init() {
 
     mouse = new Vector(random(WIDTH), random(HEIGHT));
 
-    if (WIDTH > 900) {
+    if (WIDTH > 600) {
         selectedRadio = 1;
     } else {
         selectedRadio = 0;
